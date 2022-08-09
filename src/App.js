@@ -1,5 +1,15 @@
+import Header from "./components/Header";
+import Intro from "./components/Intro";
+
 function App() {
-  return <div className="App">Hello, World!</div>;
+  return (
+    <div className="App">
+      <Header />
+      <Intro />
+      {/* <Intro />
+    <Posts /> */}
+    </div>
+  );
 }
 
 export default App;
