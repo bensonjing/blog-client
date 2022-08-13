@@ -1,14 +1,6 @@
 import { useState, useEffect } from "react";
 
-import PostItem from "./PostItem";
-
-async function getPosts() {
-  const res = await fetch(
-    "https://afternoon-beach-80207.herokuapp.com/api/posts"
-  );
-  const posts = res.json();
-  return posts;
-}
+import { Link } from "react-router-dom";
 
 function Post() {
   const [posts, setPosts] = useState([]);
@@ -24,9 +16,12 @@ function Post() {
   };
 
   return (
-    <div>
+    <div id="posts">
       {posts.map((post) => (
-        <PostItem key={post._id} post={post} />
+        <div key={post._id} id={post._id}>
+          <div>{post.title}</div>
+          <Link to={`/posts/${post._id}`}>View Post</Link>
+        </div>
       ))}
     </div>
   );
