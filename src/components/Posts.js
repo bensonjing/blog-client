@@ -18,10 +18,12 @@ function Post() {
   return (
     <div id="posts">
       {posts.map((post) => (
-        <div key={post._id} id={post._id}>
-          <div>{post.title}</div>
-          <Link to={`/posts/${post._id}`}>View Post</Link>
-        </div>
+        <Link to={`/posts/${post._id}`} key={post._id}>
+          <div id={post._id}>
+            <div>{post.title}</div>
+            <button>View Post</button>
+          </div>
+        </Link>
       ))}
     </div>
   );
