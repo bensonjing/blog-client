@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import Comments from "./Comments";
+
 function PostDetail() {
   const { postId } = useParams();
   const [post, setPost] = useState({ author: {} });
@@ -22,6 +24,7 @@ function PostDetail() {
       <div>{post.title}</div>
       <div>{post.author.username}</div>
       <div>{post.content}</div>
+      <Comments postId={postId} />
     </div>
   );
 }
