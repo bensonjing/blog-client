@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const API_URL = "https://afternoon-beach-80207.herokuapp.com";
+const LOCAL_URL = "http://localhost:3001";
 
 function Comments({ postId }) {
   const [comments, setComments] = useState([]);
@@ -11,12 +12,10 @@ function Comments({ postId }) {
 
   useEffect(() => {
     getComments();
-  });
+  }, []);
 
   const getComments = () => {
-    fetch(
-      `https://afternoon-beach-80207.herokuapp.com/api/posts/${postId}/comments`
-    )
+    fetch(`${API_URL}/api/posts/${postId}/comments`)
       .then((response) => response.json())
       .then((json) => setComments(json));
   };
@@ -40,10 +39,9 @@ function Comments({ postId }) {
         setUsername("");
         setContent("");
         setMessage("Comment created successfully");
-        console.log(message);
+        getComments();
       } else {
         setMessage("Some error occurred");
-        console.log(message);
       }
     } catch (err) {
       console.error(err);
