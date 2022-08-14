@@ -1,6 +1,6 @@
 function Intro() {
   return (
-    <div id="intro">
+    <div id="intro" className="container">
       <div>Welcome to My Blog</div>
       <div>
         Read and share ideas from independent voices, world-class publications,
