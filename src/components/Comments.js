@@ -49,41 +49,39 @@ function Comments({ postId }) {
   };
 
   return (
-    <div id="comments">
-      <div>Comments</div>
+    <div className="comments">
+      <div className="title">Comments</div>
 
-      <div id="new-comment">
-        <div>New Comment</div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Name:"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          <textarea
-            type="text"
-            id="content"
-            name="content"
-            placeholder="Comment:"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-          />
-          <button>Submit</button>
+      <form onSubmit={handleSubmit} id="new_comment">
+        <div className="title">New Comment</div>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Name:"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <textarea
+          type="text"
+          id="content"
+          name="content"
+          placeholder="Comment:"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          required
+        />
+        <button>Submit</button>
 
-          <div>{message ? <p>{message}</p> : null}</div>
-        </form>
-      </div>
+        <div>{message ? <p>{message}</p> : null}</div>
+      </form>
 
       {comments.map((comment) => (
         <div className="comment" key={uuidv4()}>
-          <div>{comment.username}</div>
+          <div className="title">{comment.username}</div>
           <div>{comment.content}</div>
-          <div>{comment.timestamp}</div>
+          <div>{new Date(comment.createdAt).toLocaleString()}</div>
         </div>
       ))}
     </div>
