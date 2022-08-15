@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 :root {
-  --large-size: 3rem;
+  --large-size: 4rem;
   --medium-size: 2rem;
   --small-size: 1rem;
   --thick-weight: 700; 
@@ -20,12 +20,34 @@ a {
   text-decoration: none;
 }
 
-.container {
-  padding: 0 10%;
+h1 {
+  font-size: var(--large-size); 
+  font-weight: var(--thick-weight);
 }
 
 /* Header */ 
 #header {
   font-size: var(--medium-size);
   font-weight: var(--thick-weight);
+  padding: 20px 10%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Intro */ 
+#intro {
+  background-color: aliceblue;
+  padding: 40px 10%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#intro #left {
+  width: 50%;
+}
+
+#intro .title {
+  line-height: 1em;
+}
+
+#intro p {
+  margin-top: 20px;
 }
