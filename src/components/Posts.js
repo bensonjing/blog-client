@@ -18,11 +18,9 @@ function Post() {
   return (
     <div id="posts">
       {posts.map((post) => (
-        <Link to={`/posts/${post._id}`} key={post._id}>
-          <div id={post._id}>
-            <div>{post.title}</div>
-            <button>View Post</button>
-          </div>
+        <Link to={`/posts/${post._id}`} key={post._id} className="post">
+          <div className="title">{post.title}</div>
+          <button>View Post</button>
         </Link>
       ))}
     </div>
